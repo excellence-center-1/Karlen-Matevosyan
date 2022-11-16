@@ -20,7 +20,7 @@ void heap(int arr[],int n,int i){
     swap(arr[i],arr[largest]);
 
 
-      heap(arr,n,largest);
+    heap(arr,n,largest);
   }
 }
 
@@ -30,8 +30,8 @@ void heapSort(int arr[],int n){
 
   for(int i = n - 1;i > 0;i--){
     swap(arr[0],arr[i]);
-  heap(arr,i,0);
-}
+    heap(arr,i,0);
+  }
 }
 
 void printArray(int arr[],int n){
@@ -43,10 +43,10 @@ void printArray(int arr[],int n){
 int main(){
   int arr[] = {12,0,-8,41,29,35,7,66};
   int n = sizeof(arr) / sizeof(arr[0]);
-    cout << "Unsorted Array: ";
+  cout << "Unsorted Array: ";
   printArray(arr,n);
 
-    cout << "Array Sorted like Heap Sort: ";
+  cout << "Array Sorted like Heap Sort: ";
   heapSort(arr,n);
   printArray(arr,n);
 }
