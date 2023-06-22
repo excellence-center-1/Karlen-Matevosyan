@@ -10,10 +10,13 @@ class Point {
     public:
         Point (double xValue,double yValue) : x(xValue), y(yValue) {}
 
-        void show () const {
+        virtual void show () const {
             cout << "Point: (" << x << ", " << y << ")" <<endl;
 
         }
+
+        virtual double area () const = 0;
+        
 };
 
 class Circle : public Point {
@@ -23,7 +26,7 @@ class Circle : public Point {
     public:
         Circle (double xValue,double yValue,double radiusValue) : Point(xValue,yValue), radius(radiusValue) {}
 
-        double area () const {
+        double area () const override{
             return PI * radius * radius;
         }
 
@@ -40,7 +43,7 @@ class Rectangle : public Point {
     public:
         Rectangle (double xValue,double yValue,double widthValue,double heightValue) : Point(xValue,yValue) , width(widthValue), height(heightValue){}
 
-        double area () const {
+        double area () const override {
             return width * height;
         }
 
@@ -52,14 +55,15 @@ class Rectangle : public Point {
 
 
 int main () {
-    Point p(3.2,2.6);
-    p.show();
+    Point *P;
+    Circle C(1.0,2.0,5.0);
+    Rectangle R(2.0,4.0,3.0,6.0);
 
-    Circle c(1.0,2.0,5.0);
-    c.show();
-    cout<<"Circle Area: "<<c.area()<<endl;
+    P = &C;
+    P->show();
+    cout<<"Circle Area: "<<P->area()<<endl;
 
-    Rectangle r(2.0,4.0,3.0,6.0);
-    r.show();
-    cout<<"Rectangle Area: "<<r.area()<<endl;
+    P = &R;
+    P->show();
+    cout<<"Rectangle Area: "<<P->area()<<endl;
 }
