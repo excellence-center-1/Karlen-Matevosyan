@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Vector_for_Stack.cpp"
+#include "Vector_for_help.cpp"
 using namespace std;
 
 template <typename b1t>
@@ -34,6 +34,13 @@ class Stack {
             return data.getSize();
         }
 
+        void print() const {
+            for (int i = 0; i < data.getSize(); i++){
+                cout << data[i] << " ";
+            }
+            cout << endl;
+        }
+
 };
 
 int main(){
@@ -44,11 +51,17 @@ int main(){
     stack.push(8);
     stack.push(6);
 
+    cout << "Stack Elements: ";
+    stack.print();
+
     cout << "Top: " << stack.top() << endl;
 
     stack.pop();
 
     cout << "Pop: " << stack.top() << endl;
+
+    cout << "After All Operations: ";
+    stack.print();
 
     cout << "Size: " << stack.size() << endl;
 
