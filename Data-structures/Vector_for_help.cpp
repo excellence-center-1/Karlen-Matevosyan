@@ -70,7 +70,7 @@ class Vector {
             current = 0;
         }
 
-        b1t& operator[](size_t index) {
+        b1t& operator[](size_t index) const {
             if (index >= current) {
                 throw out_of_range("Index out of range");
             }
