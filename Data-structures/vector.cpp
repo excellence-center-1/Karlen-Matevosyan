@@ -66,6 +66,10 @@ class Vector {
             --current;
         }
 
+        bool isEmpty(){
+            return getSize() == 0;
+        }
+
         void clear() {
             current = 0;
         }
